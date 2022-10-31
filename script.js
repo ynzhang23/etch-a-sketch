@@ -25,6 +25,7 @@ containerDimension.appendChild(dimensionBtn);
 dimensionBtn.textContent = "New Canvas";
 
 // ================================================================================================
+// generate default canvas
 // create containing box
 let containerCanvas = document.createElement('div');
 containerBody.appendChild(containerCanvas);
@@ -64,6 +65,8 @@ function addHover(e) {
     e.target.classList.add('hover');
 }
 
+// ================================================================================================
+// generate new canvas
 // change dimension value
 dimensionBtn.addEventListener('click', newCanvas);
 
