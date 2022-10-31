@@ -14,7 +14,11 @@ body {
 .box {
     width: 16px;
     height: 16px;
-    background-color: lightgrey;
+    background: lightgrey;
     margin: 2px;
     box-sizing: border-box;
+}
+
+.box:hover {
+    background: black;
 }
