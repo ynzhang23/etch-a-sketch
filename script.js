@@ -22,6 +22,7 @@ for (i = 0; i < 16; i++) {
         containerRow[i][j] = document.createElement('div');
         containerRow[i].appendChild(containerRow[i][j]);
         containerRow[i][j].classList.toggle('row' + i + 'box' + j);
+        containerRow[i][j].classList.toggle('box');  
     }
 }
 
