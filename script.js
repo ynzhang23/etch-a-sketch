@@ -26,3 +26,17 @@ for (i = 0; i < 16; i++) {
         containerRow[i][j].classList.toggle('box');  
     }
 }
+
+// allow box to detect hover, changes its color on hover
+
+// add event listener to all boxes
+for (i = 0; i < 16; i++) {
+    for (j = 0; j < 16; j++) {
+        containerRow[i][j].addEventListener('mouseover', addHover)
+    }
+}
+
+// adds an extra class on hover
+function addHover(e) {
+    e.target.classList.add('hover');
+}
