@@ -1,7 +1,14 @@
 body {
     display: flex;
+    flex-flow: column;
+}
+
+.body {
+    display: flex;
     justify-content: center;
     align-items: center;
+    background: grey;
+    height: 500px;
 }
 
 .toolBox {
@@ -27,21 +34,24 @@ body {
     box-sizing: border-box;
 }
 
-.containerZero {
+.containerCanvas {
     display: flex;
     flex-direction: column;
+    height: 400px;
+    width: 400px;
+    border: 1px solid lightgrey;
 }
 
 .row {
     display: flex;
+    flex-grow: 1;
     flex-direction: row;
 }
 
 .box {
-    width: 16px;
-    height: 16px;
+    flex: 1 1 auto;
     background: lightgrey;
-    margin: 2px;
+    margin: .2%;
     box-sizing: border-box;
 }
 
