@@ -1,6 +1,32 @@
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.toolBox {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.containerDimension {
+    display: flex;
+    align-items: center;
+}
+
+.dimensionInput {
+    height: 20px;
+    box-sizing: border-box;
+}
+
+.dimensionBtn {
+    margin-left: 30px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
 .containerZero {
     display: flex;
     flex-direction: column;
