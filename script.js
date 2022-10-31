@@ -16,7 +16,7 @@ for (i = 0; i < 16; i++) {
     containerRow[i].classList.toggle('row');
 }
 
-// create grids * 16 in row box
+// create 16 boxes per row
 // box 3 of row 5 = containerRow[5][3]
 for (i = 0; i < 16; i++) {
     for (j = 0; j < 16; j++) {
@@ -26,5 +26,3 @@ for (i = 0; i < 16; i++) {
         containerRow[i][j].classList.toggle('box');  
     }
 }
-
-// repeat row box 16 times
