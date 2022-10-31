@@ -9,6 +9,18 @@ let toolBox = document.createElement('div');
 toolBox.classList.toggle('toolBox'); 
 containerBody.appendChild(toolBox);
 
+// create title
+let title = document.createElement('div');
+title.textContent = "ETCH-A-SKETCH"
+title.classList.toggle('title');
+toolBox.appendChild(title);
+
+// create instructions
+let instruction = document.createElement('div');
+instruction.textContent = "Welcome! If you would like a 16 by 16 canvas, enter 16 into the box below."
+instruction.classList.toggle('instruction');
+toolBox.appendChild(instruction);
+
 // create dimension adjustment container
 let containerDimension = document.createElement('div');
 containerDimension.classList.toggle('containerDimension');
@@ -16,7 +28,7 @@ toolBox.appendChild(containerDimension);
 
 // create box for inputting dimension
 let dimensionInputBox = document.createElement('input');
-dimensionInputBox.setAttribute('placeholder', 'Enter Dimension: <80')
+dimensionInputBox.setAttribute('placeholder', 'Resolution')
 dimensionInputBox.classList.toggle('dimensionInput');
 containerDimension.appendChild(dimensionInputBox);
 
