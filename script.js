@@ -13,6 +13,7 @@ for (i = 0; i < 16; i++) {
     containerRow[i] = document.createElement('div');
     containerZero.appendChild(containerRow[i]);
     containerRow[i].classList.toggle('containerRow' + i);
+    containerRow[i].classList.toggle('row');
 }
 
 // create grids * 16 in row box

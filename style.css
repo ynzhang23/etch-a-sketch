@@ -1,11 +1,19 @@
+body {
+    display: flex;
+}
 .containerZero {
     display: flex;
     flex-direction: column;
 }
 
-.containerRow {
+.row {
     display: flex;
     flex-direction: row;
-    background-color: blue;
-    margin-bottom: 5px;
+}
+
+.box {
+    width: 16px;
+    height: 16px;
+    background-color: lightgrey;
+    margin: 2px;
 }
