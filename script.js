@@ -3,6 +3,7 @@ let containerBody = document.createElement('div');
 containerBody.classList.toggle('body');
 document.body.appendChild(containerBody);
 
+// ================================================================================================
 // create tool box
 let toolBox = document.createElement('div');
 toolBox.classList.toggle('toolBox'); 
@@ -15,6 +16,7 @@ toolBox.appendChild(containerDimension);
 
 // create box for inputting dimension
 let dimensionInputBox = document.createElement('input');
+dimensionInputBox.setAttribute('placeholder', 'Enter Dimension: <80')
 dimensionInputBox.classList.toggle('dimensionInput');
 containerDimension.appendChild(dimensionInputBox);
 

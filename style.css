@@ -49,9 +49,9 @@ body {
 }
 
 .box {
+    width: auto;
     flex: 1 1 auto;
     background: lightgrey;
-    margin: .2%;
     box-sizing: border-box;
 }
 
