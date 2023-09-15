@@ -6,7 +6,7 @@ document.body.appendChild(containerBody);
 // ================================================================================================
 // create tool box
 let toolBox = document.createElement('div');
-toolBox.classList.toggle('toolBox'); 
+toolBox.classList.toggle('toolBox');
 containerBody.appendChild(toolBox);
 
 // create title
@@ -49,34 +49,45 @@ containerCanvas.classList.toggle('containerCanvas');
 let containerRow = [];
 
 for (i = 0; i < 16; i++) {
-    containerRow[i] = document.createElement('div');
-    containerCanvas.appendChild(containerRow[i]);
-    containerRow[i].classList.toggle('containerRow' + i);
-    containerRow[i].classList.toggle('row');
+  containerRow[i] = document.createElement('div');
+  containerCanvas.appendChild(containerRow[i]);
+  containerRow[i].classList.toggle('containerRow' + i);
+  containerRow[i].classList.toggle('row');
 }
 
 // create 16 boxes per row
 // box 3 of row 5 = containerRow[5][3]
 for (i = 0; i < 16; i++) {
-    for (j = 0; j < 16; j++) {
-        containerRow[i][j] = document.createElement('div');
-        containerRow[i].appendChild(containerRow[i][j]);
-        containerRow[i][j].classList.toggle('row' + i + 'box' + j);
-        containerRow[i][j].classList.toggle('box');  
-    }
+  for (j = 0; j < 16; j++) {
+    containerRow[i][j] = document.createElement('div');
+    containerRow[i].appendChild(containerRow[i][j]);
+    containerRow[i][j].classList.toggle('row' + i + 'box' + j);
+    containerRow[i][j].classList.toggle('box');
+  }
 }
 
-// allow box to detect hover, changes its color on hover
+// allow box to detect hover and draw when mouse button is held down
 // add event listener to all boxes
 for (i = 0; i < 16; i++) {
-    for (j = 0; j < 16; j++) {
-        containerRow[i][j].addEventListener('mouseover', addHover)
-    }
+  for (j = 0; j < 16; j++) {
+    containerRow[i][j].addEventListener('mouseover', addHover);
+  }
 }
 
-// adds an extra class on hover
+// add event listeners for mousedown and mouseup to enable drawing
+document.addEventListener('mousedown', () => {
+  isDrawing = true;
+});
+
+document.addEventListener('mouseup', () => {
+  isDrawing = false;
+});
+
+// adds an extra class on hover when the mouse button is held down
 function addHover(e) {
+  if (isDrawing) {
     e.target.classList.add('hover');
+  }
 }
 
 // ================================================================================================
@@ -85,49 +96,44 @@ function addHover(e) {
 dimensionBtn.addEventListener('click', newCanvas);
 
 function newCanvas() {
-    // clear old canvas
-    var x = document.getElementsByClassName('containerCanvas')[0];
-    x.parentNode.removeChild(x);
+  // clear old canvas
+  var x = document.getElementsByClassName('containerCanvas')[0];
+  x.parentNode.removeChild(x);
 
-    // create new canvas
-    let dimension = document.querySelector('.dimensionInput').value;
+  // create new canvas
+  let dimension = document.querySelector('.dimensionInput').value;
 
-    // create containing box
-    let containerCanvas = document.createElement('div');
-    containerBody.appendChild(containerCanvas);
-    containerCanvas.classList.toggle('containerCanvas');
+  // create containing box
+  let containerCanvas = document.createElement('div');
+  containerBody.appendChild(containerCanvas);
+  containerCanvas.classList.toggle('containerCanvas');
 
-    // create row box
-    let containerRow = [];
+  // create row box
+  let containerRow = [];
 
-    for (i = 0; i < dimension; i++) {
-        containerRow[i] = document.createElement('div');
-        containerCanvas.appendChild(containerRow[i]);
-        containerRow[i].classList.toggle('containerRow' + i);
-        containerRow[i].classList.toggle('row');
+  for (i = 0; i < dimension; i++) {
+    containerRow[i] = document.createElement('div');
+    containerCanvas.appendChild(containerRow[i]);
+    containerRow[i].classList.toggle('containerRow' + i);
+    containerRow[i].classList.toggle('row');
+  }
+
+  // create 16 boxes per row
+  // box 3 of row 5 = containerRow[5][3]
+  for (i = 0; i < dimension; i++) {
+    for (j = 0; j < dimension; j++) {
+      containerRow[i][j] = document.createElement('div');
+      containerRow[i].appendChild(containerRow[i][j]);
+      containerRow[i][j].classList.toggle('row' + i + 'box' + j);
+      containerRow[i][j].classList.toggle('box');
     }
+  }
 
-    // create 16 boxes per row
-    // box 3 of row 5 = containerRow[5][3]
-    for (i = 0; i < dimension; i++) {
-        for (j = 0; j < dimension; j++) {
-            containerRow[i][j] = document.createElement('div');
-            containerRow[i].appendChild(containerRow[i][j]);
-            containerRow[i][j].classList.toggle('row' + i + 'box' + j);
-            containerRow[i][j].classList.toggle('box');  
-        }
+  // allow box to detect hover and draw when mouse button is held down
+  // add event listener to all boxes
+  for (i = 0; i < dimension; i++) {
+    for (j = 0; j < dimension; j++) {
+      containerRow[i][j].addEventListener('mouseover', addHover);
     }
-
-    // allow box to detect hover, changes its color on hover
-    // add event listener to all boxes
-    for (i = 0; i < dimension; i++) {
-        for (j = 0; j < dimension; j++) {
-            containerRow[i][j].addEventListener('mouseover', addHover)
-        }
-    }
-
-    // adds an extra class on hover
-    function addHover(e) {
-        e.target.classList.add('hover');
-    }
+  }
 }
